@@ -1,0 +1,52 @@
+### 회원 가입
+POST http://localhost:8000/user-service/api/v1/users/sign-up
+Content-Type: application/json
+
+{
+  "loginId": "loginId",
+  "password": "password123!",
+  "nickname": "nickname",
+  "email": "email@email.com"
+}
+
+### 로그인
+POST http://localhost:8000/user-service/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "loginId": "loginId",
+  "password": "password123!"
+}
+
+### 로그아웃
+POST http://localhost:8000/user-service/api/v1/auth/logout
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImxvZ2luSWQiOiJsb2dpbklkIiwiZXhwIjoxNjkyNTU4MDUyfQ.fBc15n8lUUK4paroQQVkro6PQ2rT2vv1KelVHQC1khVtGz0sJdez1efrEwwtDsDXfVQrXlYDv94nsH_KPiBQEQ
+
+### 인가 테스트
+GET http://localhost:8000/user-service/auth/v1/test
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImxvZ2luSWQiOiJsb2dpbklkIiwiZXhwIjoxNjkyMDQwOTYwfQ.92lR7pwy88mhzGGY9d6HRz_LdaX_LsO6BRsySuam72VoGHOIAlGfqKTgFrSBaznuRlKzPXopRbKATmPIH7ymOA
+Authorization-Refresh: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSZWZyZXNoVG9rZW4iLCJleHAiOjE2OTMyOTExMzN9.lh7d-bJDVA4hdh0ePfcI9zFE3P9xJx5vtfdK-KLY5BQ4GnwRGhhJ1NhMZB1Nbvl3mHPc0IxwevGEEoVdT3-fEA
+
+### 토큰 재발급
+GET http://mybrary.kr:8000/user-service/auth/v1/refresh
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImxvZ2luSWQiOiJsb2dpbklkIiwiZXhwIjoxNjkyNTU4MDEyfQ.82pYQRi0CQbaVUeC5agXJL6ol8lRMzpA8Tk_cj_qVWucRs5EbEzDCsoU_TzwGavrJfE-JReuWC782gCPI0Gy4g
+Authorization-Refresh: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJSZWZyZXNoVG9rZW4iLCJleHAiOjE2OTM2ODEyMTJ9.Eerj5bu11vrEAOSGhw1b85ENKnV9Wqz_ezuU5tLjv38OTFS7PPRxdvgfXVWkQxOSUOYnhHK3eL3lfOPrZam4Pw
+
+### 프로필 조회
+GET http://localhost:8000/user-service/api/v1/users/loginId/profile
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImxvZ2luSWQiOiJsb2dpbklkIiwiZXhwIjoxNjkyNTU4MDUyfQ.fBc15n8lUUK4paroQQVkro6PQ2rT2vv1KelVHQC1khVtGz0sJdez1efrEwwtDsDXfVQrXlYDv94nsH_KPiBQEQ
+
+### 프로필 수정
+PUT http://localhost:8000/user-service/api/v1/users/loginId/profile
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImxvZ2luSWQiOiJsb2dpbklkIiwiZXhwIjoxNjkyMDkyMTYwfQ.KH7tb1N3nZRaeHZkD_RBZpWhDGjTUrNn9Z36xQ9jhtkx4WCuNBaewOC3yBjYCh2uBO_Bp4GH20n3PyiTT28yHw
+
+{
+  "nickname": "new-nickname",
+  "email": "new-email@mail.com",
+  "introduction": "new-introduction"
+}
+
+### 사용자 검색
+GET http://localhost:8000/user-service/api/v1/users/search?nickname=nick
