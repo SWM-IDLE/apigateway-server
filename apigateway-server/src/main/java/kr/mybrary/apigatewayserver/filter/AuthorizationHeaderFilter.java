@@ -31,8 +31,9 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Auth
 
     private static final String SIGN_UP_PATH = "/sign-up";
     private static final String AUTHENTICATION_PATH = "/auth";
-    private static final String OAUTH2_PATH = "/oauth2/authorization";
-    private static final List<String> TOKEN_AUTH_WHITELIST = List.of(SIGN_UP_PATH, AUTHENTICATION_PATH, OAUTH2_PATH);
+    private static final String OAUTH2_PATH = "/oauth2";
+    private static final String ACTUATOR_PATH = "/actuator";
+    private static final List<String> TOKEN_AUTH_WHITELIST = List.of(SIGN_UP_PATH, AUTHENTICATION_PATH, OAUTH2_PATH, ACTUATOR_PATH);
     private static final String ERROR_MESSAGE_FORMAT = "{\"errorCode\": \"%s\", \"errorMessage\": \"%s\"}";
 
     public AuthorizationHeaderFilter() {
